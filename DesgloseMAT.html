@@ -35,7 +35,7 @@
         .col-highlight { background-color: var(--highlight-green); }
 
         .scroll-table { max-height: 500px; overflow-y: auto; border: 1px solid var(--border-color); }
-
+        /*seccion de graficos columnas*/
         .charts-section { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; background: #fff; padding: 20px; }
         .chart-container { position: relative; height: 300px; }
         h2 { color: var(--primary-blue); text-align: center; font-size: 1.1rem; }
@@ -130,7 +130,7 @@
         },
         options: { responsive: true, maintainAspectRatio: false } 
     });
-
+    /*grafico lineas*/
     new Chart(document.getElementById('chartAnos'), {
         type: 'line',
         data: {
@@ -146,3 +146,4 @@
 </body>
 
 </html>
+
