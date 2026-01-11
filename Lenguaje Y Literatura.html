@@ -19,7 +19,7 @@
         .subject-title { color: #1a5a96; font-weight: bold; margin: 15px 0 5px 0; font-size: 18px; }
         
         /* Sección Lengua y Flechas */
-        .btn-lengua { position: absolute; top: 10px; right: 20px; background-color: #c00; color: white; padding: 10px 25px; border-radius: 25px; font-size: 20px; font-weight: bold; text-align: center; }
+        .btn-lengua { position: absolute; top: 10px; right: 20px; background-color: #c00; color: white; padding: 10px 25px; border-radius: 25px; font-size: 20px; font-weight: bold; text-align: center; z-index: 10;}
         
         .nav-arrows {
             position: absolute;
@@ -27,6 +27,7 @@
             top: 80px; /* Posicionadas abajo de Lengua y Literatura */
             display: flex;
             gap: 15px;
+            z-index: 100;
         }
         .arrow-circle {
             background-color: #1a5a96;
@@ -174,7 +175,7 @@
     </div>
 
     <div style="margin-top: 30px;">
-        <a href="DeshloseLENG.html" style="background:#76bc00; color:white; padding:10px 20px; text-decoration:none; border-radius:8px; font-weight:bold;">Ver Desglose</a>
+        <a href="DesgloseLENG.html" style="background:#76bc00; color:white; padding:10px 20px; text-decoration:none; border-radius:8px; font-weight:bold;">Ver Desglose</a>
     </div>
 </div>
 
