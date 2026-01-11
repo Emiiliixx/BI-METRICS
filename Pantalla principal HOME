@@ -150,11 +150,11 @@
     <main class="dashboard-container">
         <div class="sidebar">
             <div class="region-label">Región Seleccionada</div>
-            <img src="tu_mapa_chile.png" alt="Mapa Chile" style="width:100%">
+            <img src="mapachile.png" alt="Mapa Chile" style="width:100%">
         </div>
 
         <div>
-            <img src="logo_comeduc.png" alt="Logo" style="width:180px; margin-bottom:40px;">
+            <img src="logoCOMEDUC.png" alt="Logo" style="width:180px; margin-bottom:40px;">
             <div class="zone-buttons">
                 <button class="btn-zone btn-norte">Zona norte</button>
                 <button class="btn-zone btn-centro">Zona centro</button>
@@ -163,7 +163,7 @@
         </div>
 
         <div style="text-align:center;">
-            <img src="mapa_detalle.png" alt="Detalle Comunas" style="max-width:300px;">
+            <img src="MapCOMUNASmetropolitana.png" alt="Detalle Comunas" style="max-width:300px;">
         </div>
 
         <div class="pie-chart-container">
@@ -171,7 +171,7 @@
         </div>
     </main>
 
-    <a href="#" class="next-arrow">➔</a>
+    <a href="Matematicas.html" class="next-arrow">➔</a>
 
     <script>
         const ctx = document.getElementById('myChart').getContext('2d');
@@ -213,3 +213,4 @@
     </script>
 </body>
 </html>
+
