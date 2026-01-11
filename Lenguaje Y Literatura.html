@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evaluaciones DIA - Consolidado</title>
+    <style>
+        body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; background-color: #f5f5f5; color: #333; }
+        
+        /* Header */
+        header { background-color: #1a3a5a; color: white; padding: 10px 20px; }
+        nav { display: flex; justify-content: flex-end; gap: 20px; font-size: 13px; margin-bottom: 5px; }
+        .main-title { text-align: center; font-size: 36px; margin: 10px 0; font-weight: bold; }
+
+        .container { padding: 20px; position: relative; max-width: 1300px; margin: auto; }
+
+        /* Botones y Títulos */
+        .btn-progreso { background-color: #76bc00; color: white; padding: 8px 35px; border-radius: 12px; display: inline-block; font-weight: bold; }
+        .subject-title { color: #1a5a96; font-weight: bold; margin: 15px 0 5px 0; font-size: 18px; }
+        
+        /* Sección Lengua y Flechas */
+        .btn-lengua { position: absolute; top: 10px; right: 20px; background-color: #c00; color: white; padding: 10px 25px; border-radius: 25px; font-size: 20px; font-weight: bold; text-align: center; }
+        
+        .nav-arrows {
+            position: absolute;
+            right: 20px;
+            top: 80px; /* Posicionadas abajo de Lengua y Literatura */
+            display: flex;
+            gap: 15px;
+        }
+        .arrow-circle {
+            background-color: #1a5a96;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 20px;
+            font-weight: bold;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        /* Layout Principal */
+        .dashboard { display: grid; grid-template-columns: 320px 1.5fr 1fr; gap: 25px; align-items: start; margin-top: 20px; }
+
+        /* Tablas */
+        table { width: 100%; border-collapse: collapse; font-size: 11px; background: white; margin-bottom: 15px; }
+        th, td { border: 1px solid #ddd; padding: 4px; text-align: right; }
+        th { background-color: #f8f9fa; }
+        .row-label { text-align: left; font-weight: bold; }
+
+        /* --- SECCIÓN GRÁFICO DE BARRAS (Niveles) --- */
+        .chart-box { background: white; padding: 15px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        .bar-chart-area { height: 220px; border-bottom: 2px solid #999; position: relative; display: flex; justify-content: space-around; align-items: flex-end; margin: 30px 0 10px 40px; }
+        
+        /* Escala Y */
+        .y-scale { position: absolute; left: -35px; height: 100%; width: 100%; display: flex; flex-direction: column; justify-content: space-between; border-left: 1px solid #ccc; }
+        .y-scale span { font-size: 10px; color: #666; position: relative; top: -5px; }
+
+        .bar-group { display: flex; align-items: flex-end; gap: 3px; z-index: 2; }
+        .bar { width: 25px; position: relative; transition: height 0.4s; }
+        .bar.blue { background-color: #4a90e2; }
+        .bar.red { background-color: #e74c3c; }
+        .bar.yellow { background-color: #f1c40f; }
+        
+        .bar:hover::after { content: attr(data-val) '%'; position: absolute; top: -15px; left: 0; font-size: 9px; font-weight: bold; width: 100%; text-align: center; }
+
+        /* --- SECCIÓN GRÁFICO DE TORTA --- */
+        .pie-container { text-align: center; position: relative; }
+        .pie-chart { width: 160px; height: 160px; border-radius: 50%; margin: 20px auto;
+            background: conic-gradient(#4a90e2 0% 14.7%, #e74c3c 14.7% 85.2%, #e74c3c 85.2% 95%, #2ecc71 95% 100%);
+            position: relative;
+        }
+        .pie-legend { font-size: 10px; text-align: left; margin-top: 10px; }
+
+    </style>
+</head>
+<body>
+
+<header>
+    <nav><span>Home</span><span>Liceos</span><strong>Matematicas</strong><span>Lenguaje</span><span>Desglose</span></nav>
+    <div class="main-title">Evaluaciones DIA</div>
+</header>
+
+<div class="container">
+    <div class="btn-lengua">Lengua y literatura</div>
+    
+    <div class="nav-arrows">
+        <a href="#" class="arrow-circle">&#10094;</a>
+        <a href="#" class="arrow-circle">&#10095;</a>
+    </div>
+
+    <div class="btn-progreso">Progreso</div>
+    <div class="btn-lengua">LENGUAJE Y LITERATURA</div>
+
+    <div class="dashboard">
+        
+        <div>
+            <table>
+                <tr><th>1° MEDIO</th><th>INICIAL</th><th>INTER.</th><th>CIERRE</th></tr>
+                <tr><td class="row-label">1°A</td><td>28,5</td><td>32,8</td><td>41,0</td></tr>
+                <tr><td class="row-label">1°B</td><td>33,2</td><td>37,9</td><td>65,0</td></tr>
+                <tr><td class="row-label">1°C</td><td>31,5</td><td>33,0</td><td>42,4</td></tr>
+                <tr><td class="row-label">1°D</td><td>43,0</td><td>28,6</td><td>51,9</td></tr>
+                <tr><td class="row-label">1°E</td><td>31,6</td><td>26,1</td><td>39,2</td></tr>
+                <tr><td class="row-label">1°F</td><td>37,3</td><td>37,3</td><td>52,1</td></tr>
+                <tr style="background:#eee"><td><strong>PROM.</strong></td><td>33,85</td><td>32,6</td><td>48,6</td></tr>
+            </table>
+
+            <table>
+                <tr><th>2° MEDIO</th><th>INICIAL</th><th>INTER.</th><th>CIERRE</th></tr>
+                <tr><td class="row-label">2°A</td><td>44,2</td><td>56,6</td><td>41,3</td></tr>
+                <tr><td class="row-label">2°B</td><td>43,9</td><td>38,8</td><td>35,3</td></tr>
+                <tr><td class="row-label">2°C</td><td>38,8</td><td>40,1</td><td>55,2</td></tr>
+                <tr><td class="row-label">2°D</td><td>51,9</td><td>36,5</td><td>51,5</td></tr>
+                <tr><td class="row-label">2°E</td><td>41,8</td><td>41,8</td><td>32,7</td></tr>
+                <tr><td class="row-label">2°F</td><td>45,2</td><td>43,2</td><td>32,3</td></tr>
+                <tr style="background:#eee"><td><strong>PROM.</strong></td><td>44,30</td><td>42,8</td><td>41,4</td></tr>
+            </table>
+        </div>
+
+        <div class="chart-box">
+            <div style="text-align:center; font-size: 12px; margin-bottom: 10px;">
+                <span style="color:#4a90e2">■</span> Nivel I &nbsp; 
+                <span style="color:#e74c3c">■</span> Nivel II &nbsp; 
+                <span style="color:#f1c40f">■</span> Nivel III
+            </div>
+            
+            <div class="bar-chart-area">
+                <div class="y-scale">
+                    <span>100</span><span>75</span><span>50</span><span>25</span><span>0</span>
+                </div>
+
+                <div class="bar-group">
+                    <div class="bar blue" style="height: 50.14%" data-val="50.1"></div>
+                    <div class="bar red" style="height: 32.14%" data-val="32.1"></div>
+                    <div class="bar yellow" style="height: 17.72%" data-val="17.7"></div>
+                </div>
+
+                <div class="bar-group">
+                    <div class="bar blue" style="height: 56.01%" data-val="56.0"></div>
+                    <div class="bar red" style="height: 38.58%" data-val="38.5"></div>
+                    <div class="bar yellow" style="height: 8.08%" data-val="8.0"></div>
+                </div>
+            </div>
+            <div style="display:flex; justify-content: space-around; font-weight: bold; font-size: 13px;">
+                <span>1° Medio</span><span>2° Medio</span>
+            </div>
+        </div>
+
+        <div>
+            <div class="pie-container">
+                <strong style="font-size: 12px;">N° HABILIDADES</strong>
+                <div class="pie-chart"></div>
+                <div class="pie-legend">
+                    <div><span style="color:#4a90e2">●</span> Reflexionar: 14.7%</div>
+                    <div><span style="color:#e74c3c">●</span> Localizar: 70.5%</div>
+                    <div><span style="color:#2ecc71">●</span> Interpretar: 5.0%</div>
+                </div>
+            </div>
+            
+            <div style="margin-top: 20px;">
+                <table style="font-size: 10px;">
+                    <tr><td class="row-label">Reflexionar</td><td>54.31</td></tr>
+                    <tr><td class="row-label">Localizar</td><td>47.05</td></tr>
+                    <tr><td class="row-label">Interpretar</td><td>50.30</td></tr>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+    <div style="margin-top: 30px;">
+        <a href="#" style="background:#76bc00; color:white; padding:10px 20px; text-decoration:none; border-radius:8px; font-weight:bold;">Ver Desglose</a>
+    </div>
+</div>
+
+</body>
+</html>
